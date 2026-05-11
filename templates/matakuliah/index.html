@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Mata Kuliah</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div class="navbar">
+    <ul>
+        <li>
+            <a href="{{ url_for('matakuliah') }}" class="active-tab">
+                Mata Kuliah
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('mahasiswa') }}">
+                Mahasiswa
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('dosen') }}">
+                Dosen
+            </a>
+        </li>
+
+        {% if session.get('role') == 'superadmin' %}
+        <li>
+            <a href="{{ url_for('users') }}">
+                Users
+            </a>
+        </li>
+        {% endif %}
+
+        <li class="nav-right">
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="container">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="header">
+        <h1>Daftar Mata Kuliah</h1>
+
+        <div>
+            <a href="{{ url_for('tambah_matakuliah') }}" class="btn btn-add">
+                + Tambah Mata Kuliah
+            </a>
+
+            <a href="{{ url_for('logout') }}" class="btn btn-delete">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Kode</th>
+                <th>Nama Mata Kuliah</th>
+                <th>Fakultas</th>
+                <th>SKS</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% if data_mk %}
+                {% for mk in data_mk %}
+                <tr>
+                    <td>{{ mk.kode_matkul }}</td>
+                    <td>{{ mk.nama_mk }}</td>
+                    <td>{{ mk.fakultas }}</td>
+                    <td>{{ mk.sks }}</td>
+
+                    <td>
+                        <a href="{{ url_for('edit_matakuliah', kode_matkul=mk.kode_matkul) }}"
+                           class="btn btn-edit">
+                           Edit
+                        </a>
+
+                        <a href="{{ url_for('delete_matakuliah', kode_matkul=mk.kode_matkul) }}"
+                           class="btn btn-delete"
+                           onclick="return confirm('Yakin ingin menghapus data ini?')">
+                           Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">Belum ada data mata kuliah.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

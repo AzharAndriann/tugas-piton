@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mahasiswa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+
+    <h2>Data Mahasiswa</h2>
+
+    {% if session['role'] == 'dosen' %}
+        <a href="/mahasiswa/tambah">
+            <button>Tambah Mahasiswa</button>
+        </a>
+    {% endif %}
+
+    <table>
+
+        <tr>
+            <th>Nama</th>
+            <th>NPM</th>
+            <th>No Telp</th>
+            <th>Jabatan</th>
+
+            {% if session['role'] == 'dosen' %}
+                <th>Aksi</th>
+            {% endif %}
+        </tr>
+
+        {% for m in mahasiswa %}
+        <tr>
+
+            <td>{{ m.nama }}</td>
+            <td>{{ m.npm }}</td>
+            <td>{{ m.no_telp }}</td>
+            <td>{{ m.role }}</td>
+
+            {% if session['role'] == 'dosen' %}
+            <td>
+                <a href="/mahasiswa/edit/{{m.id}}">Edit</a>
+                <a href="/mahasiswa/delete/{{m.id}}">Delete</a>
+            </td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

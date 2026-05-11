@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Mata Kuliah</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="form-container">
+
+    <h2>Tambah Mata Kuliah</h2>
+
+    <form method="POST">
+
+        <div class="form-group">
+            <label>Kode Mata Kuliah</label>
+            <input type="number" name="kode_matkul" required>
+        </div>
+
+        <div class="form-group">
+            <label>Nama Mata Kuliah</label>
+            <input type="text" name="nama_mk" required>
+        </div>
+
+        <div class="form-group">
+            <label>Fakultas</label>
+            <input type="text" name="fakultas" required>
+        </div>
+
+        <div class="form-group">
+            <label>SKS</label>
+            <input type="number" name="sks" required>
+        </div>
+
+        <div class="form-action">
+            <a href="{{ url_for('matakuliah') }}" class="btn btn-back">
+                Kembali
+            </a>
+
+            <button type="submit" class="btn btn-add">
+                Simpan
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

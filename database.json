@@ -1,0 +1,20 @@
+{
+    "mata_kuliah": [
+        {
+            "kode_matkul": 1111,
+            "nama_mk": "test",
+            "fakultas": "test",
+            "sks": "122",
+            "protected": false
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "username": "superadmin",
+            "password": "e34f92a20532a873cb3184398070b4b82a8fa29cf48572c203dc5f0fa6158231",
+            "role": "superadmin",
+            "protected": true
+        }
+    ]
+}
