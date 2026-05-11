@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dosen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+
+    <h2>Data Dosen</h2>
+
+    {% if session['role'] == 'superadmin' %}
+        <a href="/dosen/tambah">
+            <button>Tambah Dosen</button>
+        </a>
+    {% endif %}
+
+    <table>
+
+        <tr>
+            <th>Nama</th>
+            <th>NIDN</th>
+            <th>Mata Kuliah</th>
+
+            {% if session['role'] == 'superadmin' %}
+            <th>Aksi</th>
+            {% endif %}
+        </tr>
+
+        {% for d in dosen %}
+        <tr>
+
+            <td>{{ d.nama }}</td>
+            <td>{{ d.nidn }}</td>
+            <td>{{ d.matkul }}</td>
+
+            {% if session['role'] == 'superadmin' %}
+            <td>
+                <a href="/dosen/edit/{{d.id}}">Edit</a>
+                <a href="/dosen/delete/{{d.id}}">Delete</a>
+            </td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Mahasiswa</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+
+    <h2>Edit Mahasiswa</h2>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="nama"
+            value="{{ mahasiswa.nama }}"
+            required
+        >
+
+        <input
+            type="text"
+            name="npm"
+            value="{{ mahasiswa.npm }}"
+            required
+        >
+
+        <input
+            type="password"
+            name="password"
+            value="{{ mahasiswa.password }}"
+            required
+        >
+
+        <input
+            type="text"
+            name="no_telp"
+            value="{{ mahasiswa.no_telp }}"
+            required
+        >
+
+        <select name="role" required>
+
+            {% for role in roles %}
+
+                <option
+                    value="{{ role }}"
+                    {% if mahasiswa.role == role %}
+                        selected
+                    {% endif %}
+                >
+                    {{ role }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+        <button type="submit">
+            Update
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

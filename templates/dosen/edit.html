@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Dosen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="container">
+
+<h2>Edit Dosen</h2>
+
+<form method="POST">
+
+    <input type="text" name="nama" value="{{ dosen.nama }}">
+
+    <input type="text" name="nidn" value="{{ dosen.nidn }}">
+
+    <input type="text" name="matkul" value="{{ dosen.matkul }}">
+
+    <button type="submit">Update</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

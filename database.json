@@ -1,13 +1,4 @@
 {
-    "mata_kuliah": [
-        {
-            "kode_matkul": 1111,
-            "nama_mk": "test",
-            "fakultas": "test",
-            "sks": "122",
-            "protected": false
-        }
-    ],
     "users": [
         {
             "id": 1,
@@ -15,6 +6,46 @@
             "password": "e34f92a20532a873cb3184398070b4b82a8fa29cf48572c203dc5f0fa6158231",
             "role": "superadmin",
             "protected": true
+        },
+        {
+            "id": 2,
+            "username": "dosen",
+            "password": "6a43336baf50915c0042ba1ccecc7c75072763569bf8ad735bd7f6b4419ceb67",
+            "role": "dosen",
+            "protected": false
+        },
+        {
+            "id": 3,
+            "username": "1912",
+            "password": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+            "role": "dosen",
+            "protected": false
+        }
+    ],
+    "mata_kuliah": [],
+    "mahasiswa": [
+        {
+            "id": 1,
+            "nama": "test",
+            "npm": "1912",
+            "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+            "no_telp": "123",
+            "role": "ketua"
+        }
+    ],
+    "dosen_data": [
+        {
+            "id": 1,
+            "nama": "w",
+            "nidn": "2",
+            "matkul": "w"
+        },
+        {
+            "id": 2,
+            "nama": "test",
+            "nidn": "1912",
+            "matkul": "s",
+            "no_telp": "2"
         }
     ]
 }

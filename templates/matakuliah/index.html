@@ -8,42 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-
-  <div class="navbar">
-    <ul>
-        <li>
-            <a href="{{ url_for('matakuliah') }}" class="active-tab">
-                Mata Kuliah
-            </a>
-        </li>
-
-        <li>
-            <a href="{{ url_for('mahasiswa') }}">
-                Mahasiswa
-            </a>
-        </li>
-
-        <li>
-            <a href="{{ url_for('dosen') }}">
-                Dosen
-            </a>
-        </li>
-
-        {% if session.get('role') == 'superadmin' %}
-        <li>
-            <a href="{{ url_for('users') }}">
-                Users
-            </a>
-        </li>
-        {% endif %}
-
-        <li class="nav-right">
-            <a href="{{ url_for('logout') }}">
-                Logout
-            </a>
-        </li>
-    </ul>
-</div>
+{% include 'navbar.html' %}
 
 <div class="container">
 
@@ -61,11 +26,11 @@
         <h1>Daftar Mata Kuliah</h1>
 
         <div>
-            <a href="{{ url_for('tambah_matakuliah') }}" class="btn btn-add">
+            <a href="{{ url_for('matakuliah.tambah') }}" class="btn btn-add">
                 + Tambah Mata Kuliah
             </a>
 
-            <a href="{{ url_for('logout') }}" class="btn btn-delete">
+            <a href="{{ url_for('auth.logout') }}" class="btn btn-delete">
                 Logout
             </a>
         </div>

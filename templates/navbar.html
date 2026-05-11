@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <div class="navbar">
+    <ul>
+        <li>
+            <a href="{{ url_for('matakuliah.index') }}" class="active-tab">
+                Mata Kuliah
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('mahasiswa.index') }}">
+                Mahasiswa
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('dosen.index') }}">
+                Dosen
+            </a>
+        </li>
+
+
+
+        <li class="nav-right">
+            <a href="{{ url_for('auth.logout') }}">
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
